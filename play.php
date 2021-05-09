@@ -42,9 +42,10 @@ include("head.php");
     <h3 style="text-align: center; margin-bottom:0px;">Bot</h3>
 
     <select style="width: 215px; padding: 3px; height:26px">
-        <option>#1 "Alice", by Tim Koop</optin>
-        <option>#2 "Bob", by Tim Koop</optin>
-        <option>#3 "Super Pig Beater", by Tim Koop</optin>
+        <option>#1 "Alice", by Tim Koop</option>
+        <option>#2 "Bob", by Tim Koop</option>
+        <option>#3 "Super Pig Beater", by Tim Koop</option>
+        <option>#4 "Thsi Bot is Better Than Your Bot", by The Pig Farmer</option>
     </select>
 
     <div style="margin-top:20px">

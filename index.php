@@ -13,6 +13,7 @@ include("head.php");
 <li>The first person to 100 points wins.</li>
 </ul>
 
+<p style="text-align:center"><a href="play.php">play the game...</a></p>
 
 <?php
 include("tail.php")
