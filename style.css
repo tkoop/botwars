@@ -1,0 +1,27 @@
+body {
+    background-color:white;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.content {
+    max-width:800px;
+    margin:auto;
+}
+
+div.menu {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+div.menu a {
+    color:black;
+}
+
+div.menu a.active {
+    font-weight:bold;
+}
+
+h3 {
+    margin-top:28px;
+}
