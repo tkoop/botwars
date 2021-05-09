@@ -23,7 +23,8 @@ include("head.php");
     </div>
 
     <div style="margin-top:20px">
-        <button>Roll</button><button style="margin-left:6px">Done</button>
+        <button onclick="roll()">Roll</button><!--
+        --><button style="margin-left:6px">Done</button>
     </div>
 
     </div>
@@ -60,8 +61,19 @@ include("head.php");
 
 
     </div>
-
 </div>
+
+
+<script>
+async function roll() {
+    var options = {
+        method: 'POST',
+        body: 
+    }
+    var response = await fetch("/api/move.php?rollNumber=1&yourScore=0&opponentsScore=0&turnPoints=0", options)
+}
+</script>
+
 
 
 <style>
