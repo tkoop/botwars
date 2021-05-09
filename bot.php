@@ -1,4 +1,4 @@
-<?
+<?php
 $title = "About Pig";
 include("head.php");
 
@@ -11,6 +11,6 @@ Coming soon...
 </p>
 
 
-<?
+<?php
 include("tail.php")
 ?>
