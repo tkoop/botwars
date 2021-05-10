@@ -14,17 +14,17 @@ include("head.php");
 
     <div style="margin-top:20px">
     Total Score<br>
-    <div class="score" id="youTotal">0</div>
+    <div class="score" id="myTotal">0</div>
     </div>
 
     <div style="margin-top:20px">
     This Turn (<span id="botRolls">0 rolls</span>)<br>
-    <div class="score" id="youTurn">0</div>
+    <div class="score" id="myTurn">0</div>
     </div>
 
     <div style="margin-top:20px">
-        <button onclick="roll()">Roll</button><!--
-        --><button style="margin-left:6px">Done</button>
+        <button id="rollButton" onclick="roll()">Roll</button><!--
+        --><button id="doneButton" onclick="done()" style="margin-left:6px">Done</button>
     </div>
 
     </div>
@@ -33,7 +33,8 @@ include("head.php");
 
 
     <div>
-    <img src="dice/1.png">
+        <img id="die" src="dice/1.png" style="margin: auto; display: block;">
+        <div id="message"></div>
     </div>
 
 
@@ -42,11 +43,7 @@ include("head.php");
     <div id="right">
     <h3 style="text-align: center; margin-bottom:0px;">Bot</h3>
 
-    <select style="width: 215px; padding: 3px; height:26px">
-        <option>#1 "Alice", by Tim Koop</option>
-        <option>#2 "Bob", by Tim Koop</option>
-        <option>#3 "Super Pig Beater", by Tim Koop</option>
-        <option>#4 "Thsi Bot is Better Than Your Bot", by The Pig Farmer</option>
+    <select style="width: 215px; padding: 3px; height:26px" id="bots">
     </select>
 
     <div style="margin-top:20px">
@@ -65,13 +62,163 @@ include("head.php");
 
 
 <script>
-async function roll() {
-    var options = {
-        method: 'POST',
-        body: 
+/*
+Game states:
+0 = Waiting for user to roll or done
+1 = User is rolling
+2 = Bot is thinking
+3 = User just rolled a non-one
+4 = Bot is rolling
+5 = Bot is done
+*/
+var gameState = 0
+var myTotalScore = 0
+var myTurnScore = 0
+var myRollCount = 0
+var botTotalScore = 0
+var botTurnScore = 0
+var botRollCount = 0
+
+function renderState(state) {
+    gameState = state
+
+    const states = {
+        0:{message:"It's your turn.<br><br>Roll or Done.", roll:true, done:true},
+        1:{message:"Rolling...", roll:false, done:false},
+        2:{message:"Bot is thinking...", roll:false, done:false},
+        3:{appendMessage:"<br><br>Roll or Done.", roll:true, done:true},
+        4:{message:"Bot is rolling...", roll:false, done:false},
+        5:{message:"Bot is done.", roll:false, done:false},
     }
-    var response = await fetch("/api/move.php?rollNumber=1&yourScore=0&opponentsScore=0&turnPoints=0", options)
+
+    var state = states[gameState]
+
+    if (state.appendMessage) {
+        $("#message").append($("<span></span>").html(state.appendMessage))
+    } else {
+        $("#message").html(state.message)
+    }
+
+    $("#rollButton").prop("disabled", !state.roll)
+    $("#doneButton").prop("disabled", !state.done)
+
+    $("#myTotal").text(myTotalScore)
+    $("#myTurn").text(myTurnScore)
+    $("#myRolls").text(myRollCount)
+    $("#botTotal").text(botTotalScore)
+    $("#botTurn").text(botTurnScore)
+    $("#botRolls").text(botRollCount)
 }
+
+function shake() {
+    return new Promise((resolve, fail) => {
+        const number = parseInt(Math.random() * 6 + 1)
+        const degrees = parseInt(Math.random() * 40 - 20)
+
+        $("#die").attr("src", "dice/" + number + ".png").css("transform", "rotate("+degrees+"deg)")
+
+        setTimeout(()=>{
+            resolve(number)
+        }, 200)
+    })
+}
+
+async function botThink() {
+    renderState(2)
+
+    var response = await fetch("/api/move.php?rollNumber="+botRollCount+"&yourScore="+botTotalScore+"&opponentsScore="+myTotalScore+"&turnPoints="+botTurnScore+"&botId="+$("#bots").val())
+    var answer = await response.json()
+
+    if (answer.shouldRoll) {
+        botRoll()
+    } else {
+        renderState(5)
+        myRollCount = 1
+        botTotalScore += botTurnScore
+        botTurnScore = 0
+        setTimeout(() => {
+            renderState(0)
+        }, 200)
+    }
+}
+
+async function botRoll() {
+    renderState(4)
+
+    await shake()
+    await shake()
+    await shake()
+    await shake()
+    await shake()
+    var number = await shake()
+
+    botRollCount++
+
+    if (number == 1) {
+        $("#message").html("Bot rolled a 1")
+        botTurnScore = 0
+        setTimeout(() => {
+            renderState(0)
+        }, 2000)
+    } else {
+        $("#message").html("Bot rolled a " + number + ".")
+        botTurnScore += number
+        setTimeout(() => {
+            botThink()
+        }, 2000)
+    }
+}
+
+function done() {
+    myTotalScore += myTurnScore
+    myTurnScore = 0
+    botRollCount = 1
+    botThink()
+}
+
+async function roll() {
+    renderState(1)
+
+    await shake()
+    await shake()
+    await shake()
+    await shake()
+    await shake()
+    var number = await shake()
+
+    myRollCount++
+
+    if (number == 1) {
+        $("#message").html("You rolled a 1  :(")
+        myTurnScore = 0
+        botRollCount = 1
+        setTimeout(() => {
+            botThink()
+        }, 2000)
+    } else {
+        $("#message").html("You rolled a " + number + ".")
+        myTurnScore += number
+        renderState(3)
+    }
+}
+
+async function populateBots() {
+    var fetchData = await fetch("/api/bots.php")
+    var bots = await fetchData.json()
+    $("#bots").text("")
+
+    bots.forEach(bot => {
+        var option = $("<option></option>").prop("value", bot.id).text("#" + bot.rank + " \"" + bot.name + "\" by " + bot.author)
+        $("#bots").append(option)
+    })
+
+    renderState(0)
+}
+
+
+$(() => {
+    populateBots()
+})
 </script>
 
 
@@ -92,6 +239,12 @@ button {
     height:40px;
     margin-bottom:12px;
     font-size:larger;
+}
+#message {
+    margin-top: 24px; 
+    font-style: italic;
+    width: 120px;
+    text-align:center;
 }
 </style>
 

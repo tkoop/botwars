@@ -1,20 +1,20 @@
 <?php
 
+$botId = $_GET["botId"];
+$botId = preg_replace("/[^A-Za-z0-9]/", '', $botId);
+$bot = json_decode(file_get_contents("../bots/".$botId.".json"), true);
 
-$bot = json_decode(file_get_contents("../bots/aoejfpoahefahekjfahlef.json"), true);
-
-
-$rollNumber = json_encode(isset($_GET["rollNumber"]) ? $_GET["rollNumber"] : 1);
-$yourScore = json_encode(isset($_GET["yourScore"]) ? $_GET["yourScore"] : 0);
-$opponentsScore = json_encode(isset($_GET["opponentsScore"]) ? $_GET["opponentsScore"] : 1);
-$turnPoints = json_encode(isset($_GET["turnPoints"]) ? $_GET["turnPoints"] : 1);
+$rollNumber = isset($_GET["rollNumber"]) ? $_GET["rollNumber"] : 1;
+$yourScore = isset($_GET["yourScore"]) ? $_GET["yourScore"] : 0;
+$opponentsScore = isset($_GET["opponentsScore"]) ? $_GET["opponentsScore"] : 1;
+$turnPoints = isset($_GET["turnPoints"]) ? $_GET["turnPoints"] : 1;
 $code = $bot["code"];
 
-// $rollNumber = json_encode(1);
-// $yourScore = json_encode(1);
-// $opponentsScore = json_encode(1);
-// $turnPoints = json_encode(1);
-// $code = "return rollNumber <= 2";
+$rollNumber = preg_replace("/[^0-9]/", '', $rollNumber);
+$yourScore = preg_replace("/[^0-9]/", '', $yourScore);
+$opponentsScore = preg_replace("/[^0-9]/", '', $opponentsScore);
+$turnPoints = preg_replace("/[^0-9]/", '', $turnPoints);
+
 
 $script = <<<END
 
@@ -23,11 +23,23 @@ var yourScore = {$yourScore}
 var opponentsScore = {$opponentsScore}
 var turnPoints = {$turnPoints}
 
+function eval(str) {
+    return null
+}
+
+function require() {
+    return null
+}
+
+function include() {
+    return null
+}
+
 function move() {
     {$code}
 }
 
-console.log(move())
+console.log(!!move())
 
 END;
 
@@ -53,15 +65,14 @@ $descriptorspec = array(
      $return = stream_get_contents($pipes[1]);
      fclose($pipes[1]);
 
-     echo "Returned: " . $return;
+     $shouldRoll = (trim($return) == "true");
+
+     echo json_encode(["shouldRoll"=>$shouldRoll]);
  
      // It is important that you close any pipes before calling
-     // proc_close in order to avoid a deadlock
-     $return_value = proc_close($process);
- 
-//     echo "command returned $return_value\n";
+     proc_close($process);
 
 } else {
-    echo "bad resource";
+    echo "{error:'bad resource'}";
 }
 
