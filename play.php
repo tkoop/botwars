@@ -18,7 +18,7 @@ include("head.php");
     </div>
 
     <div style="margin-top:20px">
-    This Turn (<span id="botRolls">0 rolls</span>)<br>
+    This Turn (<span id="myRolls">0 rolls</span>)<br>
     <div class="score" id="myTurn">0</div>
     </div>
 
@@ -70,6 +70,9 @@ Game states:
 3 = User just rolled a non-one
 4 = Bot is rolling
 5 = Bot is done
+6 = Nothing
+7 = Bot is done.  It's your turn.
+11 = Bot won
 */
 var gameState = 0
 var myTotalScore = 0
@@ -89,6 +92,11 @@ function renderState(state) {
         3:{appendMessage:"<br><br>Roll or Done.", roll:true, done:true},
         4:{message:"Bot is rolling...", roll:false, done:false},
         5:{message:"Bot is done.", roll:false, done:false},
+        6:{appendMessage:"", roll:false, done:false},
+        7:{message:"Bot is done.<br><br>It's your turn.<br><br>Roll or Done.", roll:true, done:true},
+        8:{message:"Bot rolled a 1.<br><br>It's your turn.<br><br>Roll or Done.", roll:true, done:true},
+        10:{message:"You won!", roll:false, done:false, playAgain:true},
+        11:{message:"Bot won.<br><br>", roll:false, done:false, playAgain:true},
     }
 
     var state = states[gameState]
@@ -97,6 +105,11 @@ function renderState(state) {
         $("#message").append($("<span></span>").html(state.appendMessage))
     } else {
         $("#message").html(state.message)
+    }
+
+    if (state.playAgain) {
+        var botId = $("#bots").val()
+        $("#message").append($("<span></span>").html("<br><br><a href='play.php?id="+botId+"'>Play again?</a>"))
     }
 
     $("#rollButton").prop("disabled", !state.roll)
@@ -113,13 +126,15 @@ function renderState(state) {
 function shake() {
     return new Promise((resolve, fail) => {
         const number = parseInt(Math.random() * 6 + 1)
-        const degrees = parseInt(Math.random() * 40 - 20)
+        const degrees = parseInt(Math.random() * 90 - 45)
+        const x = parseInt(Math.random() * 20 - 10)
+        const y = parseInt(Math.random() * 20 - 10)
 
-        $("#die").attr("src", "dice/" + number + ".png").css("transform", "rotate("+degrees+"deg)")
+        $("#die").attr("src", "dice/" + number + ".png").css("transform", "rotate("+degrees+"deg)").css({left:x+"px", top:y+"px"})
 
         setTimeout(()=>{
             resolve(number)
-        }, 200)
+        }, 180)
     })
 }
 
@@ -132,12 +147,17 @@ async function botThink() {
     if (answer.shouldRoll) {
         botRoll()
     } else {
-        renderState(5)
-        myRollCount = 1
+        botRollCount = 0
         botTotalScore += botTurnScore
         botTurnScore = 0
+
+        if (botTotalScore >= 100) {
+            renderState(11)
+            return
+        }
+
         setTimeout(() => {
-            renderState(0)
+            renderState(7)
         }, 200)
     }
 }
@@ -152,18 +172,24 @@ async function botRoll() {
     await shake()
     var number = await shake()
 
-    botRollCount++
-
     if (number == 1) {
-        $("#message").html("Bot rolled a 1")
+        $("#message").html("Bot rolled a 1.")
         botTurnScore = 0
+        botRollCount = 0
+        renderState(6)
         setTimeout(() => {
-            renderState(0)
+            renderState(8)
         }, 2000)
     } else {
         $("#message").html("Bot rolled a " + number + ".")
         botTurnScore += number
+
         setTimeout(() => {
+            renderState(6)  // this updates the score
+        }, 1000)
+
+        setTimeout(() => {
+            botRollCount++
             botThink()
         }, 2000)
     }
@@ -173,10 +199,18 @@ function done() {
     myTotalScore += myTurnScore
     myTurnScore = 0
     botRollCount = 1
+    myRollCount = 0
+
+    if (myTotalScore >= 100) {
+        renderState(10)
+        return
+    }
+
     botThink()
 }
 
 async function roll() {
+    myRollCount++
     renderState(1)
 
     await shake()
@@ -186,12 +220,12 @@ async function roll() {
     await shake()
     var number = await shake()
 
-    myRollCount++
 
     if (number == 1) {
         $("#message").html("You rolled a 1  :(")
         myTurnScore = 0
         botRollCount = 1
+        myRollCount = 0
         setTimeout(() => {
             botThink()
         }, 2000)
@@ -210,6 +244,9 @@ async function populateBots() {
     bots.forEach(bot => {
         var option = $("<option></option>").prop("value", bot.id).text("#" + bot.rank + " \"" + bot.name + "\" by " + bot.author)
         $("#bots").append(option)
+        <?php if (isset($_GET["id"])) { ?>
+            $("#bots").val(<?php echo json_encode($_GET["id"]) ?>)
+        <?php } ?>
     })
 
     renderState(0)
@@ -233,6 +270,7 @@ $(() => {
     padding: 12px;
     text-align: right;
     width: 190px;
+    background-color: #fffee6;
 }
 button {
     width:105;
@@ -245,6 +283,9 @@ button {
     font-style: italic;
     width: 120px;
     text-align:center;
+}
+#die {
+    position:relative;
 }
 </style>
 
