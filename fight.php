@@ -38,7 +38,7 @@ async function fight() {
     var data = await fetch("/api/fight.php?id="+id+"&key="+key)
     try {
         var result = await data.json()
-        $("#details").val(JSON.stringify(result))
+        $("#details").val(result.log)
     } catch (error) {
         $("#details").val("Error: " + error)
     }
