@@ -24,17 +24,17 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4142136"
-     inkscape:cx="232.86872"
+     inkscape:cx="92.154473"
      inkscape:cy="586.54204"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
      showgrid="false"
-     inkscape:window-width="866"
-     inkscape:window-height="836"
-     inkscape:window-x="16"
-     inkscape:window-y="9"
-     inkscape:window-maximized="0" />
+     inkscape:window-width="1600"
+     inkscape:window-height="835"
+     inkscape:window-x="0"
+     inkscape:window-y="427"
+     inkscape:window-maximized="1" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -88,229 +88,205 @@
        y="115.66263"
        inkscape:export-xdpi="203.83766"
        inkscape:export-ydpi="203.83766" />
+    <rect
+       style="fill:#fffee6;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect863-2"
+       width="10"
+       height="10"
+       x="73.101128"
+       y="169.75766"
+       ry="0.8365376"
+       inkscape:export-filename="/home/tim/Projects/botwars/dice/6.png"
+       inkscape:export-xdpi="154.81897"
+       inkscape:export-ydpi="154.81897" />
     <g
-       id="g1316"
-       transform="translate(-54.190529,37.93029)">
-      <rect
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect863-2"
-         width="10"
-         height="10"
-         x="127.29166"
-         y="131.82738"
-         ry="0.8365376"
-         inkscape:export-filename="/home/tim/Projects/botwars/dice/6.png"
-         inkscape:export-xdpi="77.409485"
-         inkscape:export-ydpi="77.409485" />
-      <g
-         id="g1043"
-         transform="translate(74.247164,-2.8501856)">
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-9"
-           cx="56.079571"
-           cy="137.73056"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-7-5-4"
-           cx="56.079571"
-           cy="141.62457"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-7-5-8"
-           cx="56.079571"
-           cy="139.67757"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-2"
-           cx="60.009434"
-           cy="137.73056"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-7-5-4-8"
-           cx="60.009434"
-           cy="141.62457"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-7-5-8-9"
-           cx="60.009434"
-           cy="139.67757"
-           r="0.5" />
-      </g>
-    </g>
-    <g
-       id="g1299"
-       transform="translate(-87.675114,-8.281124)">
-      <rect
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect863-5"
-         width="10"
-         height="10"
-         x="143.86913"
-         y="174.07059"
-         ry="0.83653748"
-         inkscape:export-filename="/home/tim/Projects/botwars/dice/6.png"
-         inkscape:export-xdpi="77.409485"
-         inkscape:export-ydpi="77.409485" />
-      <g
-         id="g975"
-         transform="translate(90.883421,39.428433)">
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-1"
-           cx="56.008854"
-           cy="137.65971"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-7"
-           cx="59.962555"
-           cy="141.62457"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-7-5"
-           cx="59.962555"
-           cy="137.65971"
-           r="0.5" />
-        <circle
-           style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-           id="path865-7-5-4-1"
-           cx="56.008854"
-           cy="141.62457"
-           r="0.5" />
-      </g>
+       id="g1043"
+       transform="translate(20.056635,35.080104)">
       <circle
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-7-5-8-0"
-         cx="148.86913"
-         cy="179.07059"
+         id="path865-9"
+         cx="56.079571"
+         cy="137.73056"
+         r="0.5" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path865-7-5-4"
+         cx="56.079571"
+         cy="141.62457"
+         r="0.5" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path865-7-5-8"
+         cx="56.079571"
+         cy="139.67757"
+         r="0.5" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path865-2"
+         cx="60.009434"
+         cy="137.73056"
+         r="0.5" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path865-7-5-4-8"
+         cx="60.009434"
+         cy="141.62457"
+         r="0.5" />
+      <circle
+         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         id="path865-7-5-8-9"
+         cx="60.009434"
+         cy="139.67757"
          r="0.5" />
     </g>
+    <rect
+       style="fill:#fffee6;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect863-5"
+       width="10"
+       height="10"
+       x="56.194012"
+       y="165.78946"
+       ry="0.83653748"
+       inkscape:export-filename="/home/tim/Projects/botwars/dice/5.png"
+       inkscape:export-xdpi="154.81897"
+       inkscape:export-ydpi="154.81897" />
     <g
-       id="g1306"
-       transform="translate(-118.85344,50.285935)">
-      <rect
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect863-8"
-         width="10"
-         height="10"
-         x="155.36171"
-         y="117.67671"
-         ry="0.83653748"
-         inkscape:export-filename="/home/tim/Projects/botwars/dice/6.png"
-         inkscape:export-xdpi="77.409485"
-         inkscape:export-ydpi="77.409485" />
+       id="g975"
+       transform="translate(3.208307,31.147309)">
       <circle
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-5"
-         cx="158.38486"
-         cy="120.69427"
+         id="path865-1"
+         cx="56.008854"
+         cy="137.65971"
          r="0.5" />
       <circle
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-7-0"
-         cx="162.33856"
-         cy="124.65913"
+         id="path865-7"
+         cx="59.962555"
+         cy="141.62457"
          r="0.5" />
       <circle
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-7-5-6"
-         cx="162.33856"
-         cy="120.69427"
+         id="path865-7-5"
+         cx="59.962555"
+         cy="137.65971"
          r="0.5" />
       <circle
          style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-7-5-4-4"
-         cx="158.38486"
-         cy="124.65913"
+         id="path865-7-5-4-1"
+         cx="56.008854"
+         cy="141.62457"
          r="0.5" />
     </g>
-    <g
-       id="g1327"
-       transform="translate(-27.072004,43.227359)">
-      <rect
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect863-6"
-         width="10"
-         height="10"
-         x="97.364227"
-         y="104.04597"
-         ry="0.83653748"
-         inkscape:export-filename="/home/tim/Projects/botwars/dice/6.png"
-         inkscape:export-xdpi="77.409485"
-         inkscape:export-ydpi="77.409485" />
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-25"
-         cx="100.38893"
-         cy="107.05422"
-         r="0.5" />
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-7-8"
-         cx="104.33952"
-         cy="111.03771"
-         r="0.5" />
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-7-5-62"
-         cx="102.36423"
-         cy="109.04597"
-         r="0.5" />
-    </g>
-    <g
-       id="g1321"
-       transform="translate(-79.229984,53.009289)">
-      <rect
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect863-84"
-         width="10"
-         height="10"
-         x="130.50565"
-         y="95.49334"
-         ry="0.83653748"
-         inkscape:export-filename="/home/tim/Projects/botwars/dice/6.png"
-         inkscape:export-xdpi="77.409485"
-         inkscape:export-ydpi="77.409485" />
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-72"
-         cx="133.78792"
-         cy="98.828819"
-         r="0.5" />
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-7-4"
-         cx="137.22337"
-         cy="102.15788"
-         r="0.5" />
-    </g>
-    <g
-       id="g1331"
-       transform="translate(-64.898015,61.28816)">
-      <rect
-         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="rect863-0"
-         width="10"
-         height="10"
-         x="100.03693"
-         y="86.138908"
-         ry="0.83653748"
-         inkscape:export-filename="/home/tim/Projects/botwars/dice/6.png"
-         inkscape:export-xdpi="77.409485"
-         inkscape:export-ydpi="77.409485" />
-      <circle
-         style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
-         id="path865-6"
-         cx="105.03693"
-         cy="91.138908"
-         r="0.5" />
-    </g>
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-7-5-8-0"
+       cx="61.194012"
+       cy="170.78946"
+       r="0.5" />
+    <rect
+       style="fill:#fffee6;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect863-8"
+       width="10"
+       height="10"
+       x="36.50827"
+       y="167.96265"
+       ry="0.83653748"
+       inkscape:export-filename="/home/tim/Projects/botwars/dice/4.png"
+       inkscape:export-xdpi="154.81897"
+       inkscape:export-ydpi="154.81897" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-5"
+       cx="39.531418"
+       cy="170.98021"
+       r="0.5" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-7-0"
+       cx="43.485123"
+       cy="174.94507"
+       r="0.5" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-7-5-6"
+       cx="43.485123"
+       cy="170.98021"
+       r="0.5" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-7-5-4-4"
+       cx="39.531418"
+       cy="174.94507"
+       r="0.5" />
+    <rect
+       style="fill:#fffee6;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect863-6"
+       width="10"
+       height="10"
+       x="70.292221"
+       y="147.27333"
+       ry="0.83653748"
+       inkscape:export-filename="/home/tim/Projects/botwars/dice/3.png"
+       inkscape:export-xdpi="154.81897"
+       inkscape:export-ydpi="154.81897" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-25"
+       cx="73.316925"
+       cy="150.28159"
+       r="0.5" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-7-8"
+       cx="77.267517"
+       cy="154.26508"
+       r="0.5" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-7-5-62"
+       cx="75.292221"
+       cy="152.27333"
+       r="0.5" />
+    <rect
+       style="fill:#fffee6;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect863-84"
+       width="10"
+       height="10"
+       x="51.275661"
+       y="148.50262"
+       ry="0.83653748"
+       inkscape:export-filename="/home/tim/Projects/botwars/dice/2.png"
+       inkscape:export-xdpi="154.81897"
+       inkscape:export-ydpi="154.81897" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-72"
+       cx="54.557934"
+       cy="151.8381"
+       r="0.5" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-7-4"
+       cx="57.993389"
+       cy="155.16718"
+       r="0.5" />
+    <rect
+       style="fill:#fffee6;fill-opacity:1;stroke:#000000;stroke-width:0.5;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect863-0"
+       width="10"
+       height="10"
+       x="35.138912"
+       y="147.42706"
+       ry="0.83653748"
+       inkscape:export-filename="/home/tim/Projects/botwars/dice/1.png"
+       inkscape:export-xdpi="154.81897"
+       inkscape:export-ydpi="154.81897" />
+    <circle
+       style="fill:#000000;fill-opacity:1;stroke:none;stroke-width:0;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path865-6"
+       cx="40.138912"
+       cy="152.42706"
+       r="0.5" />
   </g>
 </svg>
