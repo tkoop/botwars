@@ -19,7 +19,7 @@ if (isset($_POST["code"])) {
     $_SESSION["message"] = "Your bot was saved.";
 
     if ($_POST["action"] == "Save") header("Location: /bot.php");
-    if ($_POST["action"] == "Save and Play") header("Location: /play.php?id=personal-".$key);
+    if ($_POST["action"] == "Save and Play") header("Location: /play.php");
     if ($_POST["action"] == "Save and Fight") header("Location: /fight.php");
 
     exit();
@@ -55,12 +55,19 @@ const turnPoints;<span class="comment">  // The total amount of points earned du
 
 
 <script>
-$(() => {
+$(async () => {
     $("#personalKey").val(localStorage.getItem("key"))
-    var code = localStorage.getItem("code")
-    if (code != null) {
-        $("#code").val(code)
-    } else {
+    try {
+        var data = await fetch("/api/code.php?key="+localStorage.getItem("key"))
+        var bot = await data.json()
+        var code = bot.code
+        console.log(code)
+        if (code != null) {
+            $("#code").val(code)
+        } else {
+            $("#code").val("// This simple bot just rolls (up to) two times.\n\nreturn rollNumber <= 2")
+        }
+    } catch(exceptione) {
         $("#code").val("// This simple bot just rolls (up to) two times.\n\nreturn rollNumber <= 2")
     }
 })

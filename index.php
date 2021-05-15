@@ -5,12 +5,12 @@ include("head.php");
 ?>
 
 <h3>How to Botwar</h3>
-<ul>
-    <li>Familiarize yourself with Pig by playing the game.</li>
+<ol>
+    <li>Familiarize yourself with the game of Pig, by playing the game.</li>
     <li>Create your own bot in JavaScript that can play the game itself.</li>
     <li>Test your bot by playing against yourself or by fighting other bots.</li>
     <li>Once your bot is awesome, submit it to competition against other bots.</li>
-</ul>
+</ol>
 
 
 <h3>Rules of Pig</h3>

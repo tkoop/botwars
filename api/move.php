@@ -1,8 +1,9 @@
 <?php
 
 $botId = $_GET["botId"];
-$botId = preg_replace("/[^A-Za-z0-9]/", '', $botId);
-$bot = json_decode(file_get_contents("../bots/".$botId.".json"), true);
+$botId = preg_replace("/[^A-Za-z0-9\\-]/", '', $botId);
+$fileContents = file_get_contents("../bots/".$botId.".json");
+$bot = json_decode($fileContents, true);
 
 $rollNumber = isset($_GET["rollNumber"]) ? $_GET["rollNumber"] : 1;
 $yourScore = isset($_GET["yourScore"]) ? $_GET["yourScore"] : 0;

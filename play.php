@@ -236,13 +236,35 @@ async function roll() {
     }
 }
 
+function generate() {
+    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
+    var key = ""
+    for(var i=0; i<32; i++) {
+        key += chars[parseInt(Math.random() * chars.length)]
+    }
+    return key
+}
+
 async function populateBots() {
-    var fetchData = await fetch("/api/bots.php")
+    var key = localStorage.getItem("key")
+    if (key == null) {
+        key = generate()
+        localStorage.setItem("key", key)
+    }
+    var fetchData = await fetch("/api/bots.php?key="+key)
     var bots = await fetchData.json()
     $("#bots").text("")
 
-    bots.forEach(bot => {
-        var option = $("<option></option>").prop("value", bot.id).text("#" + bot.rank + " \"" + bot.name + "\" by " + bot.author)
+    bots.personal.forEach(bot => {
+        var option = $("<option></option>").prop("value", bot.type + "-" + bot.id).text(bot.name)
+        $("#bots").append(option)
+        <?php if (isset($_GET["id"])) { ?>
+            $("#bots").val(<?php echo json_encode($_GET["id"]) ?>)
+        <?php } ?>
+    })
+
+    bots.contest.forEach(bot => {
+        var option = $("<option></option>").prop("value", bot.type + "-" + bot.id).text("#" + bot.rank + " \"" + bot.name + "\" by " + bot.author)
         $("#bots").append(option)
         <?php if (isset($_GET["id"])) { ?>
             $("#bots").val(<?php echo json_encode($_GET["id"]) ?>)
