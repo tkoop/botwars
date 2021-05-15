@@ -61,7 +61,6 @@ $(async () => {
         var data = await fetch("/api/code.php?key="+localStorage.getItem("key"))
         var bot = await data.json()
         var code = bot.code
-        console.log(code)
         if (code != null) {
             $("#code").val(code)
         } else {
