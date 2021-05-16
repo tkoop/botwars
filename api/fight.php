@@ -104,6 +104,7 @@ function run() {
     }
 
     var winner = "bot"
+    if (thisScore > thatScore) winner = "you"
     console.log(JSON.stringify({winner:winner, log:log}))
 }
 

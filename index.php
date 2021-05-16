@@ -8,7 +8,7 @@ include("head.php");
 <ol>
     <li>Familiarize yourself with the game of Pig, by playing the game.</li>
     <li>Create your own bot in JavaScript that can play the game itself.</li>
-    <li>Test your bot by playing against yourself or by fighting other bots.</li>
+    <li>Test your bot by playing it against yourself or by fighting other bots.</li>
     <li>Once your bot is awesome, submit it to competition against other bots.</li>
 </ol>
 
