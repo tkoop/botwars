@@ -39,4 +39,16 @@ foreach($files as $file) {
     }
 }
 
+if (count($contest) == 0) {
+    $bot = '{"rank": 1, "name": "The Two Step", "author": "Botwars", "passkey": "aoiefjuaheaoiefhauiwea", "code": "return rollNumber <= 2"}';
+    file_put_contents("../bots/contest-aoiefjuaheaoiefhauiwea.json", $bot);
+    $contest[] = [
+        "type" => "contest",
+        "rank" => 1,
+        "name" => "The Two Step",
+        "author" => "Botwars",
+        "id" => "aoiefjuaheaoiefhauiwea",
+    ];
+}
+
 echo json_encode(["personal"=>$personal, "contest"=>$contest]);
