@@ -121,7 +121,7 @@ $descriptorspec = array(
  );
  
  
- $process = proc_open('node', $descriptorspec, $pipes);
+ $process = proc_open('nodejs', $descriptorspec, $pipes);
  
  if (is_resource($process)) {
      // $pipes now looks like this:
