@@ -62,7 +62,7 @@ async function fight() {
 
 
 async function populateBots() {
-    var fetchData = await fetch("/api/bots.php?key=")
+    var fetchData = await fetch("/api/bots.php?key=")   // no key, because we don't want to fight our bot against ourselves
     var bots = await fetchData.json()
     $("#bots").text("")
 

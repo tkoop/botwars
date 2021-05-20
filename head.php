@@ -20,10 +20,15 @@
     <a href="/play.php" class="<?= $_SERVER["REQUEST_URI"] == "/play.php" ? "active":"" ?>">Play The Game</a>
     <a href="/bot.php" class="<?= $_SERVER["REQUEST_URI"] == "/bot.php" ? "active":"" ?>">Your Bot</a>
     <a href="/fight.php" class="<?= $_SERVER["REQUEST_URI"] == "/fight.php" ? "active":"" ?>">Fight Your Bot</a>
-    <a href="/submit.php" class="<?= $_SERVER["REQUEST_URI"] == "/submit.php" ? "active":"" ?>">Submit Your Bot To Competition</a>
+    <a href="/battle.php" class="<?= $_SERVER["REQUEST_URI"] == "/battle.php" ? "active":"" ?>">Battle Rankings</a>
 </div>
 
 <?php 
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
 if (isset($_SESSION["errorMessage"])) {
     ?>
     <p style="color:darkred"><?php echo htmlentities($_SESSION["errorMessage"]) ?></p>
