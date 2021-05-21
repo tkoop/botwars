@@ -15,20 +15,22 @@ function createRandom() {
 }
 
 if (isset($_POST["name"])) {
-    $bot = [
-        "rank" => 0,
-        "name" => $_POST["botName"],
-        "author" => $_POST["name"],
-        "passkey" => $_POST["passkey"],
-        "code" => $_POST["code"]
-    ];
-
-    $fileName = "bots/contest-" . createRandom() . ".json";
-    file_put_contents($fileName, json_encode($bot));
-
+    if ($_POST["name"] != "") {
+        $bot = [
+            "rank" => 0,
+            "name" => $_POST["botName"],
+            "author" => $_POST["name"],
+            "passkey" => $_POST["passkey"],
+            "code" => $_POST["code"]
+        ];
+        
+        $fileName = "bots/contest-" . createRandom() . ".json";
+        file_put_contents($fileName, json_encode($bot));
+    }
+    
+    $bw->war();
 }
 
-$bw->war();
 
 ?>
 
@@ -69,7 +71,7 @@ $(() => {
 <div>
 <h3>Battle Rankings</h3>
 <?php
-$bots = $bw->getRankings();
+$bots = $bw->getBots()["contest"];
 foreach($bots as $bot) {
     ?>
     <div>#<?php echo $bot["rank"] . " \"" . htmlentities($bot["name"]) . "\", by " . htmlentities($bot["author"]) ?></div>

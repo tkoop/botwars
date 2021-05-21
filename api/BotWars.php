@@ -58,10 +58,14 @@ class BotWars {
             ];
         }
 
+        usort($contest, function($a, $b) {
+            return $a["rank"] <=> $b["rank"];
+        });
+
         return ["personal"=>$personal, "contest"=>$contest];
     }
 
-
+/*
     public function getRankings() {
         $files = scandir(realpath(__DIR__) . "/../bots");
         $bots = [];
@@ -77,7 +81,7 @@ class BotWars {
 
         return $bots;
     }
-
+*/
 
     public function move($botId, $rollNumber, $yourScore, $opponentsScore, $turnPoints) {
 
@@ -163,23 +167,22 @@ END;
         $bots = $this->getBots()["contest"];
         if (count($bots) == 0) return;
 
-        $ranks = [$bots[0]];
+        usort($bots, function($bot1, $bot2) {
+            $result = json_decode($this->fight("contest-".$bot1["id"], "contest-".$bot2["id"], 100), true);
 
-//        for($i=1; $i<count($bots); $i++) {
-        for($i=1; $i<2; $i++) {
-            $result = json_decode($this->fight("contest-".$bots[$i-1]["id"], "contest-".$bots[$i]["id"], 1000), true);
-            if ($result["firstWins"] > $result["secondWins"]) {
-                echo "first won " . $result["firstWins"] . " to " . $result["secondWins"];
-            } else {
-                echo "second won " . $result["secondWins"] . " to " . $result["firstWins"];
-            }
+            if ($result["firstWins"] > $result["secondWins"]) return -1;
+            if ($result["firstWins"] < $result["secondWins"]) return 1;
+            return 0;
+        });
+
+        for($i=0; $i<count($bots); $i++) {
+            $bot = $bots[$i];
+            $fileContents = file_get_contents(realpath(__DIR__) . "/../bots/contest-".$bot["id"].".json");
+            $b = json_decode($fileContents, true);
+            $b["rank"] = $i+1;
+            file_put_contents(realpath(__DIR__) . "/../bots/contest-".$bot["id"].".json", json_encode($b));
         }
 
-        //echo $bots[0]["id"];
-
-//        $result = $this->fight("contest-".$bots[0]["id"], "contest-".$bots[1]["id"], 1000);
- //       echo $result;
-//        echo json_decode($result, true);
     }
 
 
