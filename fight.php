@@ -50,7 +50,7 @@ async function fight() {
             $("#youWins").data("wins", wins)
             $("#youWins").text(wins + (wins == 1 ? " win":" wins"))
         } else {
-            $("#winner").text("You loose").css({color:"darkred"})
+            $("#winner").text("You lose").css({color:"darkred"})
             var wins = $("#botWins").data("wins") + 1
             $("#botWins").data("wins", wins)
             $("#botWins").text(wins + (wins == 1 ? " win":" wins"))
