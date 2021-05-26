@@ -13,7 +13,7 @@
 
 <div class="content">
 
-<img src="logo.png" style="width:100%">
+<img src="logo.svg" style="width:100%">
 
 <div class="menu">
     <a href="/index.php" class="<?= $_SERVER["REQUEST_URI"] == "/index.php" || $_SERVER["REQUEST_URI"] == "/" ? "active":"" ?>">About This</a>
