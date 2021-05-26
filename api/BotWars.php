@@ -165,7 +165,7 @@ END;
         });
 
         usort($bots, function($bot1, $bot2) {
-            $result = json_decode($this->fight("contest-".$bot1["id"], "contest-".$bot2["id"], 100), true);
+            $result = json_decode($this->fight("contest-".$bot1["id"], "contest-".$bot2["id"], 200), true);
 
             if ($result["firstWins"] > $result["secondWins"]) return -1;
             if ($result["firstWins"] < $result["secondWins"]) return 1;
