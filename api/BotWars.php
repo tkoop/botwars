@@ -65,23 +65,6 @@ class BotWars {
         return ["personal"=>$personal, "contest"=>$contest];
     }
 
-/*
-    public function getRankings() {
-        $files = scandir(realpath(__DIR__) . "/../bots");
-        $bots = [];
-
-        foreach($files as $file) {
-            if ($file[0] == ".") continue;
-            $parts = explode("-", $file);
-            if (count($parts) == 0) continue;
-            if ($parts[0] != "contest") continue;
-
-            $bots[] = json_decode(file_get_contents(realpath(__DIR__) . "/../bots/" . $file), true);
-        }
-
-        return $bots;
-    }
-*/
 
     public function move($botId, $rollNumber, $yourScore, $opponentsScore, $turnPoints) {
 
@@ -115,7 +98,11 @@ class BotWars {
         function include() {
             return null
         }
-        
+
+        function fetch() {
+            return null
+        }
+
         function move() {
             {$code}
         }
@@ -207,16 +194,32 @@ END;
         function require() {
             return null
         }
-        
+
+        function fetch() {
+            return null
+        }
+
         function include() {
             return null
         }
         
         function thisRoll(rollNumber, yourScore, opponentsScore, turnPoints) {
+            function thatRoll() {
+                return true
+            }
+            function run() {
+                return null
+            }
             {$thisCode}
         }
         
         function thatRoll(rollNumber, yourScore, opponentsScore, turnPoints) {
+            function thisRoll() {
+                return true
+            }
+            function run() {
+                return null
+            }
             {$thatCode}
         }
         
