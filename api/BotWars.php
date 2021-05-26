@@ -155,6 +155,16 @@ END;
         if (count($bots) == 0) return;
 
         usort($bots, function($bot1, $bot2) {
+            if ($bot1["name"] < $bot2["name"]) return -1;
+            if ($bot1["name"] > $bot2["name"]) return 1;
+
+            if ($bot1["author"] < $bot2["author"]) return -1;
+            if ($bot1["author"] > $bot2["author"]) return 1;
+
+            return 0;
+        });
+
+        usort($bots, function($bot1, $bot2) {
             $result = json_decode($this->fight("contest-".$bot1["id"], "contest-".$bot2["id"], 100), true);
 
             if ($result["firstWins"] > $result["secondWins"]) return -1;
