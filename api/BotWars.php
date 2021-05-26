@@ -173,6 +173,23 @@ END;
     }
 
 
+    public function getRandomNumbers() {
+        if (file_exists(realpath(__DIR__). "/../bots/seed.json")) {
+            $seed = json_decode(file_get_contents(realpath(__DIR__) . "/../bots/seed.json"), true);
+        } else {
+            $seed = mt_rand(0, 999999);
+            file_put_contents(realpath(__DIR__) . "/../bots/seed.json", $seed);
+        }
+
+        srand($seed);
+
+        $numbers = [];
+        for($i=0; $i<5000; $i++) {
+            $numbers[] = mt_rand(1, 6);
+        }
+        return $numbers;
+    }
+
 
     public function fight($bot1, $bot2, $times=1) {
         $thisBotId = preg_replace("/[^A-Za-z0-9\\-]/", '', $bot1);
@@ -184,8 +201,13 @@ END;
         $thatCode = $thatBot["code"];
         
         $printLog = $times == 1 ? "true" : "false";
+
+        $randoms = json_encode($this->getRandomNumbers());
         
         $script = <<<END
+
+        var randoms = {$randoms}
+        var randomsIndex = 0
         
         function eval(str) {
             return null
@@ -210,6 +232,8 @@ END;
             function run() {
                 return null
             }
+            var randoms = []
+            var randomsIndex = 0
             {$thisCode}
         }
         
@@ -220,6 +244,8 @@ END;
             function run() {
                 return null
             }
+            var randoms = []
+            var randomsIndex = 0
             {$thatCode}
         }
         
@@ -248,7 +274,8 @@ END;
                     var shouldRoll = thisRoll(rollNumber, thisScore, thatScore, turnPoints)
                     log += "Does your bot roll? " + (shouldRoll ? "Yes":"No") + ". "
                     if (shouldRoll) {
-                        var die = parseInt(Math.random()*6) + 1
+                        var die = randoms[randomsIndex]
+                        randomsIndex = (randomsIndex+1) % randoms.length
                         if (die == 1) {
                             turnPoints = 0
                             doneTurn = true
@@ -275,7 +302,8 @@ END;
                         var shouldRoll = thatRoll(rollNumber, thatScore, thisScore, turnPoints)
                         log += "Does that bot roll? " + (shouldRoll ? "Yes":"No") + ". "
                         if (shouldRoll) {
-                            var die = parseInt(Math.random()*6) + 1
+                            var die = randoms[randomsIndex]
+                            randomsIndex = (randomsIndex+1) % randoms.length
                             if (die == 1) {
                                 turnPoints = 0
                                 doneTurn = true

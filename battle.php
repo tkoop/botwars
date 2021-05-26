@@ -39,7 +39,7 @@ if (isset($_POST["name"])) {
 <div>
 <h3>Submit your Bot</h3>
 
-<form method="post" id="theForm">
+<form method="post" id="theForm" onsubmit="localStorage.setItem('author', $('#name').val())">
     <p>
     Name your bot:<br>
     <input type="text" name="botName" style="width:150px">
@@ -47,7 +47,7 @@ if (isset($_POST["name"])) {
 
     <p>
     Your name:<br>
-    <input type="text" name="name" style="width:150px">
+    <input type="text" name="name" id="name" style="width:150px">
     </p>
 
     <input type="hidden" name="code" value="">
@@ -65,11 +65,15 @@ if (isset($_POST["name"])) {
 $(() => {
     $("#theForm input[name=code]").val(localStorage.getItem("code"));
     $("#theForm input[name=passkey]").val(localStorage.getItem("key"));
+
+    $('input[name=name]').val(localStorage.getItem('author'));
+    $("input[name=botName]").focus();
 })
 </script>
 
 <div>
 <h3>Battle Rankings</h3>
+
 <?php
 $bots = $bw->getBots()["contest"];
 foreach($bots as $bot) {
