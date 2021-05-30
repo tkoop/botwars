@@ -1,15 +1,16 @@
 <html>
     <head>
         <title>Botwars: <?= htmlentities($title) ?></title>
+
         <link rel="icon" href="/favicon.png"  type="image/png">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <?php readfile($_SERVER['DOCUMENT_ROOT'] . '/moreDocumentHeaders.html'); // for stuff like web analytics ?>
     </head>
 <body>
-
-<link rel="stylesheet" href="style.css">
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <div class="content">
 
